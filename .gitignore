@@ -1,0 +1,12 @@
+/log
+/tmp
+/config/database.yml
+.idea/
+public/assets
+public/uploads
+
+.DS_Store
+public/.DS_Store
+
+dump.rdb
+.env
