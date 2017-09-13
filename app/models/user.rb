@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id         :integer          not null, primary key
+#  nickname   :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  provider   :string
+#  uid        :string
+#
+
 class User < ApplicationRecord
 
   def self.find_or_create_with_omniauth(auth)

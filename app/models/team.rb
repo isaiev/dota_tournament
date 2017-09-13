@@ -1,3 +1,23 @@
+# == Schema Information
+#
+# Table name: teams
+#
+#  id         :integer          not null, primary key
+#  logo       :string
+#  title      :string
+#  user_id    :integer          indexed
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+# Indexes
+#
+#  index_teams_on_user_id  (user_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (user_id => users.id)
+#
+
 class Team < ApplicationRecord
 
   mount_uploader :logo, ::LogoUploader

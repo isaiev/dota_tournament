@@ -24,6 +24,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rubocop'
   gem 'faker'
+  gem 'annotate'
 end
 
 group :development do
