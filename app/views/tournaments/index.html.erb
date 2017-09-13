@@ -31,14 +31,13 @@
               </h4>
             <% elsif is_users_team_registered(tournament) %>
               <h4 class="card-title">
-                <%= button_to 'Register in tournament',
-                              team_tournament_path(team_tournament(tournament.id)),
+                <%= button_to 'Unegister in tournament',
+                              team_tournament_path(team_tournament(@current_user.team.id, tournament.id)),
                               method: :delete,
                               remote: true %>
               </h4>
             <% end %>
           <% end %>
-
 
         </div>
       </div>

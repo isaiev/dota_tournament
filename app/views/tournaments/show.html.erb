@@ -1,2 +1,30 @@
-<h1>Tournaments#index</h1>
-<p>Find me in app/views/tournaments/index.html.erb</p>
+<h1 class="my-4"><%= @tournament.title %></h1>
+
+<div class="row">
+  <% @teams.each do |team| %>
+    <div class="col-lg-4 col-sm-6 portfolio-item">
+      <div class="card h-100">
+        <div class="card-body">
+          <h4 class="card-title">
+            <%= label_tag 'Logo:' %>
+            <img class="card-img-top team-list" src="<%= team.logo.url %>">
+          </h4>
+          <h4 class="card-title">
+            <%= label_tag 'Title:' %>
+            <%= team.title %>
+          </h4>
+          <h4 class="card-title">
+            <%= label_tag 'Owner:' %>
+            <%= team.owner.nickname %>
+          </h4>
+
+          <h4 class="card-title">
+            <%= label_tag 'Registered At:' %>
+            <%= team_tournament(team.id, @tournament.id).created_at.strftime('%e %B %Y, %H:%M') %>
+          </h4>
+
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
