@@ -2,45 +2,6 @@
 
 <div class="row">
   <% @tournaments.each do |tournament| %>
-    <div class="col-lg-4 col-sm-6 portfolio-item">
-      <div class="card h-100">
-        <div class="card-body">
-
-          <h4 class="card-title">
-            <%= label_tag 'Title:' %>
-            <%= tournament.title %>
-          </h4>
-          <h4 class="card-title">
-            <%= label_tag 'Participants count:' %>
-            <%= tournament.teams.count %>
-          </h4>
-          <h4 class="card-title">
-            <%= link_to 'Participants list', tournament_path(tournament) %>
-          </h4>
-
-          <% if @current_user&.team %>
-            <% if is_users_team_not_registered(tournament) %>
-              <h4 class="card-title">
-                <%= button_to 'Register in tournament',
-                              team_tournaments_path(
-                                team_id: @current_user.team.id,
-                                tournament_id: tournament.id
-                              ),
-                              method: :post,
-                              remote: true %>
-              </h4>
-            <% elsif is_users_team_registered(tournament) %>
-              <h4 class="card-title">
-                <%= button_to 'Unegister in tournament',
-                              team_tournament_path(team_tournament(@current_user.team.id, tournament.id)),
-                              method: :delete,
-                              remote: true %>
-              </h4>
-            <% end %>
-          <% end %>
-
-        </div>
-      </div>
-    </div>
+    <%= render 'tournament_preview', tournament: tournament %>
   <% end %>
 </div>

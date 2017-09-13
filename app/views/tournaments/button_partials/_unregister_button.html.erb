@@ -1,0 +1,5 @@
+<%= button_to 'Unegister in tournament',
+              team_tournament_path(team_tournament(@current_user.team.id, tournament.id)),
+              method: :delete,
+              remote: true,
+              class: 'unregister_button' %>

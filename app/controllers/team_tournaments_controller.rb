@@ -1,11 +1,22 @@
 class TeamTournamentsController < ApplicationController
 
   def create
-    TeamTournament.create!(permitted_params)
+    @team_tournament = TeamTournament.create!(permitted_params)
+
+    respond_to do |format|
+      format.html { redirect_to tournaments_path }
+      format.js { render :replace_tournament_preview }
+    end
   end
 
   def destroy
-    TeamTournament.find(params[:id]).destroy!
+    @team_tournament = TeamTournament.find(params[:id])
+    @team_tournament.destroy!
+
+    respond_to do |format|
+      format.html { redirect_to tournaments_path }
+      format.js { render :replace_tournament_preview }
+    end
   end
 
   def permitted_params
