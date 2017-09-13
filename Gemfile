@@ -23,6 +23,7 @@ gem 'sprockets-rails'
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rubocop'
+  gem 'faker'
 end
 
 group :development do
