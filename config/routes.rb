@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'tournaments/index'
+
   root to: 'index#index'
 
   get '/signin' => 'sessions#new', as: :signin
