@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   get '/auth/starladder/callback', to: 'sessions#create', as: :starladder_callback
 
   resources :tournaments, only: [:show, :index]
-  resources :teams, only: [:create, :index]
+  resources :teams, only: [:create, :index, :new, :edit, :update, :destroy]
 
 end

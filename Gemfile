@@ -19,6 +19,7 @@ gem 'carrierwave', '~> 1.0'
 gem 'bootstrap', '~> 4.0.0.beta'
 gem 'jquery-rails'
 gem 'sprockets-rails'
+gem 'mini_magick'
 
 group :development, :test do
   gem 'byebug', platform: :mri
