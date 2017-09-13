@@ -5,9 +5,9 @@ class SessionsController < ApplicationController
   end
 
   def create
-    # @user = User.find_or_create_from_auth_hash(auth_hash)
-    # self.current_user = @user
-    # redirect_to '/'
+    self.current_user = User.find_or_create_with_omniauth(auth_hash)
+
+    redirect_to root_path
   end
 
   protected
