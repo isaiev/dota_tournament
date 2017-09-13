@@ -16,16 +16,24 @@ class TeamsController < ApplicationController
   def create
     @team = Team.create(team_params.merge({ user_id: @current_user.id }))
 
-    @team.save ? redirect_to_root_path : render :new
+    if @team.save
+      redirect_to_root_path
+    else
+      render :new
+    end
   end
 
   def edit
   end
 
   def update
-    @team.update!(team_params)
+    @team.update(team_params)
 
-    redirect_to_root_path
+    if @team.save
+      redirect_to_root_path
+    else
+      render :edit
+    end
   end
 
   def destroy
