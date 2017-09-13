@@ -1,5 +1,17 @@
 <div class="row">
-  <%= form_for @team, url: { action: local_variables[:action] } do |f| %>
+  <% if team.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(team.errors.count, 'error') %> prohibited this team from being saved:</h2>
+
+      <ul>
+        <% team.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form_for team do |f| %>
     <%= f.text_field :title %>
     <%= f.file_field :logo %>
     <%= f.submit 'Submit' %>

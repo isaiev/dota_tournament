@@ -14,9 +14,9 @@ class TeamsController < ApplicationController
   end
 
   def create
-    Team.create!(team_params.merge({ user_id: @current_user.id }))
+    @team = Team.create(team_params.merge({ user_id: @current_user.id }))
 
-    redirect_to_root_path
+    @team.save ? redirect_to_root_path : render :new
   end
 
   def edit

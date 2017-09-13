@@ -27,4 +27,7 @@ class Team < ApplicationRecord
   has_many :team_tournaments
   has_many :tournaments, through: :team_tournaments
 
+  validates :title, uniqueness: true
+  validates :title, :logo, presence: true
+
 end
