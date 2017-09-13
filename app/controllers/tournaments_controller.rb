@@ -4,4 +4,8 @@ class TournamentsController < ApplicationController
     @tournaments = Tournament.all
   end
 
+  def show
+    @tournament = Tournament.find(params[:id])
+  end
+
 end
