@@ -5,12 +5,10 @@ module OmniAuth
     class Starladder < OmniAuth::Strategies::OAuth2
 
       option :name, 'starladder'
-      option :client_options, {
-        :site => StarladderUrlModule::SITE_URL,
-        :authorize_url => StarladderUrlModule::OAUTH_AUTHORIZE_URL,
-        :token_url => StarladderUrlModule::OAUTH_TOKEN_URL
-      }
-      option :authorize_params, { grant_type: 'authorization_code' }
+      option :client_options, site: StarladderUrlModule::SITE_URL,
+                              authorize_url: StarladderUrlModule::OAUTH_AUTHORIZE_URL,
+                              token_url: StarladderUrlModule::OAUTH_TOKEN_URL
+      option :authorize_params, grant_type: 'authorization_code'
 
       uid { raw_info['id'].to_s }
 

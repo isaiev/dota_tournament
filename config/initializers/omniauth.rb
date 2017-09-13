@@ -5,5 +5,5 @@ module OmniAuth
 end
 
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :starladder, ENV['STARLADDER_APP_ID'], ENV['STARLADDER_SECRET'], { :provider_ignores_state => true }
+  provider :starladder, ENV['STARLADDER_APP_ID'], ENV['STARLADDER_SECRET'], provider_ignores_state: true
 end
