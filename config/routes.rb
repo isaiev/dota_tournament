@@ -1,3 +1,8 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  get '/signin' => 'sessions#new', as: :signin
+  get '/auth/starladder/callback', to: 'sessions#create', as: :starladder_callback
+
+  post 'sessions/create'
+
 end
