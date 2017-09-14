@@ -6,11 +6,11 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item <%= navigation_class(root_path) %>">
+        <li class="nav-item <%= navigation_class_by_path(root_path) %>">
           <a class="nav-link" href="<%= root_path %>">Home
           </a>
         </li>
-        <li class="nav-item <%= navigation_class(controller: 'tournaments', action: action_name) %>">
+        <li class="nav-item <%= navigation_class_by_controller('tournaments') %>">
           <a class="nav-link" href="<%= tournaments_path %>">Tournaments</a>
         </li>
         <% if @current_user %>
