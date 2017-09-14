@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170913134031) do
+ActiveRecord::Schema.define(version: 20170914090538) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20170913134031) do
     t.integer  "tournament_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.index ["team_id", "tournament_id"], name: "index_team_tournaments_on_team_id_and_tournament_id", unique: true, using: :btree
     t.index ["team_id"], name: "index_team_tournaments_on_team_id", using: :btree
     t.index ["tournament_id"], name: "index_team_tournaments_on_tournament_id", using: :btree
   end
