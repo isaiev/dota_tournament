@@ -1,24 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. git clone git@github.com:isaiev/dota_tournament.git
+1. cd dota_tournament && bundle install
+1. rake db:setup
+1. add file .env with keys STARLADDER_APP_ID and STARLADDER_SECRET
+1. rails s
