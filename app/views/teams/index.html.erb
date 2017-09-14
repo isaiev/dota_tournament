@@ -1,0 +1,42 @@
+<h1 class="my-4">Teams list
+  <% if @current_user && !@current_user.team %>
+    <small>
+      <%= link_to 'Create team', new_team_path, class: 'btn btn-success' %>
+    </small>
+  <% end %>
+</h1>
+
+<div class="row">
+  <% @teams.each do |team| %>
+    <div class="col-lg-4 col-sm-6 portfolio-item">
+      <div class="card h-100">
+        <div class="card-body">
+          <h4 class="card-title">
+            <%= label_tag 'Logo:' %>
+            <img class="card-img-top team-list" src="<%= team.logo.url %>">
+          </h4>
+          <h4 class="card-title">
+            <%= label_tag 'Title:' %>
+            <%= team.title %>
+          </h4>
+          <h4 class="card-title">
+            <%= label_tag 'Owner:' %>
+            <%= team.owner.nickname %>
+          </h4>
+
+          <h4 class="card-title">
+            <%= label_tag 'Created At:' %>
+            <%= team.created_at.strftime('%e %B %Y, %H:%M') %>
+          </h4>
+          <% if @current_user == team.owner %>
+            <div class="btn-group">
+              <%= link_to 'EDIT', edit_team_path(team), class: 'btn btn-warning' %>
+              <%= button_to 'DELETE', team_path(team), method: :delete, class: 'btn btn-danger' %>
+            </div>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

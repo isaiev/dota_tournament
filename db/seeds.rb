@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Tournament.destroy_all
+
+6.times do
+  Tournament.create!(title: Faker::WorldOfWarcraft.hero)
+end

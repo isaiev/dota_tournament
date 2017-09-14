@@ -1,0 +1,8 @@
+<%= button_to 'Register in tournament',
+              team_tournaments_path(
+                team_id: @current_user.team.id,
+                tournament_id: tournament.id
+              ),
+              method: :post,
+              remote: true,
+              class: 'register_button btn btn-success' %>

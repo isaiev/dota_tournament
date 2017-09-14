@@ -1,0 +1,7 @@
+<h1 class="my-4">Tournament list</h1>
+
+<div class="row">
+  <% @tournaments.each do |tournament| %>
+    <%= render 'tournament_preview', tournament: tournament %>
+  <% end %>
+</div>

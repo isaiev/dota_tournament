@@ -1,0 +1,2 @@
+$("#tournament-preview-<%="#{@team_tournament.tournament.id}" %>")
+    .replaceWith('<%= j render 'tournaments/tournament_preview', tournament: @team_tournament.tournament %>');
