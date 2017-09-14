@@ -31,4 +31,8 @@ class Team < ApplicationRecord
   validates :title, uniqueness: true
   validates :title, :logo, presence: true
 
+  def find_team_tournament(tournament_id)
+    team_tournaments.find_by(tournament_id: tournament_id)
+  end
+
 end

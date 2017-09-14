@@ -5,8 +5,12 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'bootstrap', '~> 4.0.0.beta'
+gem 'carrierwave', '~> 1.0'
 gem 'dotenv-rails'
 gem 'jbuilder', '~> 2.5'
+gem 'jquery-rails'
+gem 'mini_magick'
 gem 'omniauth'
 gem 'omniauth-oauth2'
 gem 'pg', '~> 0.18'
@@ -14,18 +18,14 @@ gem 'pry'
 gem 'puma', '~> 3.0'
 gem 'rails', '~> 5.0.1'
 gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
-gem 'carrierwave', '~> 1.0'
-gem 'bootstrap', '~> 4.0.0.beta'
-gem 'jquery-rails'
 gem 'sprockets-rails'
-gem 'mini_magick'
+gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
-  gem 'byebug', platform: :mri
-  gem 'rubocop'
-  gem 'faker'
   gem 'annotate'
+  gem 'byebug', platform: :mri
+  gem 'faker'
+  gem 'rubocop'
 end
 
 group :development do

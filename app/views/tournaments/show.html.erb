@@ -20,7 +20,7 @@
 
           <h4 class="card-title">
             <%= label_tag 'Registered At:' %>
-            <%= team_tournament(team.id, @tournament.id).created_at.strftime('%e %B %Y, %H:%M') %>
+            <%= team.find_team_tournament(@tournament.id).created_at.strftime('%e %B %Y, %H:%M') %>
           </h4>
 
         </div>

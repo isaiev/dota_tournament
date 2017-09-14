@@ -2,8 +2,8 @@ class TeamsController < ApplicationController
 
   skip_before_action :authenticate, only: [:index]
 
-  before_action :init_team, only: [:edit, :update, :destroy]
-  before_action :check_owner, only: [:edit, :update, :destroy]
+  before_action :init_team, only: %i[edit update destroy]
+  before_action :check_owner, only: %i[edit update destroy]
   before_action :check_team_count, only: [:create]
 
   def index
@@ -15,7 +15,7 @@ class TeamsController < ApplicationController
   end
 
   def create
-    @team = Team.create(team_params.merge({ user_id: @current_user.id }))
+    @team = Team.create(team_params.merge(user_id: @current_user.id))
 
     if @team.save
       redirect_to_root_path
@@ -24,8 +24,7 @@ class TeamsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     @team.update(team_params)

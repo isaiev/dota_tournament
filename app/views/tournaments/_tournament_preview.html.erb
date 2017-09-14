@@ -15,11 +15,11 @@
       </h4>
 
       <% if @current_user&.team %>
-        <% if is_users_team_not_registered(tournament) %>
+        <% if users_team_not_registered?(tournament) %>
           <h4 class="card-title">
             <%= render 'tournaments/button_partials/register_button', tournament: tournament  %>
           </h4>
-        <% elsif is_users_team_registered(tournament) %>
+        <% elsif users_team_registered?(tournament) %>
           <h4 class="card-title">
             <%= render 'tournaments/button_partials/unregister_button', tournament: tournament %>
           </h4>

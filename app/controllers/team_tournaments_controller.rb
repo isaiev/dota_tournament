@@ -46,4 +46,5 @@ class TeamTournamentsController < ApplicationController
 
     forbidden if !@team_tournament || (@team_tournament.team.owner != @current_user)
   end
+
 end
