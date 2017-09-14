@@ -1,7 +1,8 @@
 class TeamsController < ApplicationController
 
-  before_action :find_team, only: [:edit, :update, :destroy]
-  before_action :check_logged_user, only: [:new, :edit, :update, :destroy]
+  skip_before_action :authenticate, only: [:index]
+
+  before_action :init_team, only: [:edit, :update, :destroy]
   before_action :check_owner, only: [:edit, :update, :destroy]
   before_action :check_team_count, only: [:create]
 
@@ -44,28 +45,24 @@ class TeamsController < ApplicationController
 
   private
 
-  def find_team
+  def init_team
     @team = Team.find(params[:id])
   end
 
   def check_owner
-    redirect_to_root_path unless @team.owner == @current_user
-  end
-
-  def check_logged_user
-    redirect_to_root_path unless @current_user
+    forbidden unless @team.owner == @current_user
   end
 
   def check_team_count
-    redirect_to_root_path if @current_user.team
-  end
-
-  def redirect_to_root_path
-    redirect_to root_path
+    forbidden if @current_user.team
   end
 
   def team_params
     params[:team].permit(:title, :logo)
+  end
+
+  def redirect_to_root_path
+    redirect_to root_path
   end
 
 end

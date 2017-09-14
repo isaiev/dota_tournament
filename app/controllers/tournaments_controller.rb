@@ -1,5 +1,7 @@
 class TournamentsController < ApplicationController
 
+  skip_before_action :authenticate
+
   def index
     @tournaments = Tournament.all
   end
