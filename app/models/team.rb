@@ -25,8 +25,8 @@ class Team < ApplicationRecord
 
   belongs_to :owner, foreign_key: :user_id, class_name: 'User'
 
-  has_many :team_tournaments
-  has_many :tournaments, through: :team_tournaments
+  has_many :team_tournaments, dependent: :destroy
+  has_many :tournaments, through: :team_tournaments, dependent: :destroy
 
   validates :title, uniqueness: true
   validates :title, :logo, presence: true
